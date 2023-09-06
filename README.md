@@ -1,7 +1,8 @@
 # PracticalD2T Hackathon
 
 ## LLM access
-
+- our API
+- Google Colab
 
 ## Main Task: ☀️ Weather Forecast Generation
 
@@ -14,6 +15,7 @@ The forecasts should be:
 - **human-readable**
 - **accurate** with respect to the input data
 - **concise** (covering important insights only)
+- complete, captivating, insightful ...
 
 ### OpenWeather API
 For starters, you can find a set of Python scripts for interacting with the [OpenWeather API](https://openweathermap.org/api) in the `scripts/openweather` directory.
@@ -51,13 +53,19 @@ Pi
 ### Task #3: Generate a weather forecast in the local language
 
 
+### Evaluation
+- human evaluation
+- automatic hallucination metrics
+- weathergov?
+
+
 ## Alternative Tasks
 
 ### Our World In Data
 
-The server [Our World In Data](https://ourworldindata.org/) provides open data in readable format on many interesting topics, including [climate change](https://ourworldindata.org/charts#climate-change), [COVID-19](https://ourworldindata.org/charts#covid-19), or [Annual scholarly publications on AI](https://ourworldindata.org/grapher/annual-scholarly-publications-on-artificial-intelligence).
+The server [Our World In Data](https://ourworldindata.org/) provides [open data](https://github.com/owid/owid-datasets/tree/master/datasets) in machine-readable format on many interesting topics, including [climate change](https://ourworldindata.org/charts#climate-change), [COVID-19](https://ourworldindata.org/charts#covid-19), or [Annual scholarly publications on AI](https://ourworldindata.org/grapher/annual-scholarly-publications-on-artificial-intelligence).
 
-You can download each data source underlying the chart in a readable CSV format.
+You can download each data source underlying the chart in a CSV format.
 
 The basic task is: "automatically generate a caption for the chart of your choice". 
 
