@@ -1,4 +1,5 @@
-# PracticalD2T Hackathon
+# PracticalD2T 2023 – Hackathon
+This repository contains instructions and example scripts for the [**PracticalD2T Hackathon**](https://practicald2t.github.io) which takes place on 11 September @ SIGDIAL / INLG 2023, Prague.
 
 ## Main Task: Weather Forecast Generation 🌦️
 
@@ -63,12 +64,14 @@ The report should be useful for the city inhabitants. Therefore, it should not c
 ### Subtask #4: Generate a weather forecast in the local language [advanced]
 If you are feeling adventurous, you may extend any of the previous tasks to the multilingual setting. 
 
-In particular, it would be useful to generate the weather report in the local language of the city. How many languages can your system handle at once?
+In particular, it would be useful to generate the weather report in the local language of the city. 
+
+How many languages can your system handle at once?
 
 ### Evaluation
 The most important part of the hackathon is **evaluating the quality of the generated reports**. 
 
-Here are various axes you can evaluate the output on:
+Various axes you should evaluate the output on:
 
 - **fluency** - Is the report without syntactical / grammatical errors and is it easily readable?
 - **semantic accuracy** - Is the report faithful to the input data, or does it contain false information?
@@ -82,8 +85,8 @@ Referenceless metrics take as an input the generated output alone.
 
 These metrics can help us evaluate the **fluency and readability** of the outputs.
 
-- **LM perplexity** -  How much is a selected language model *likely* to generate the report? (see e.g. [perplexity on HF metrics](https://huggingface.co/spaces/evaluate-metric/perplexity))
-- **Quality Estimation** - What is the estimated quality of the report based on the report alone? (see e.g. [COMET-QE](https://huggingface.co/spaces/evaluate-metric/comet/blob/main/README.md), [GEMBA](https://arxiv.org/pdf/2302.14520.pdf))
+- **LM perplexity** -  How much is a selected language model *likely* to generate the report? (see [perplexity on HF metrics](https://huggingface.co/spaces/evaluate-metric/perplexity))
+- **Quality Estimation** - What is the estimated quality of the report based on the report alone? (see [COMET-QE](https://huggingface.co/spaces/evaluate-metric/comet/blob/main/README.md), [GEMBA](https://arxiv.org/pdf/2302.14520.pdf))
 
 
 #### Automatic Metrics: Reference-based
@@ -91,15 +94,14 @@ Reference-based metrics take as input the generated output and a reference.
 
 Since we generally do not have human-written references, we need to focus on the metrics that compare the generated text to the input data. These metrics can help us evaluate the **semantic accuracy** of the output.
 
-- NLGI - 
-- **[QuestEval](https://github.com/ThomasScialom/QuestEval)** 
-
-- automatic hallucination metrics
-- weathergov?
+- **NLI** - Are all of the output facts entailed in the input data and vice versa? (see [nlgi](https://github.com/ufal/nlgi_eval), you can ask Zdeněk for help)
+- **QuestEval** - Is it possible to answer questions from the output based on the input data? (see [QuestEval](https://github.com/ThomasScialom/QuestEval))
+- standard **semantic overlap metrics** - [BERTScore](https://huggingface.co/spaces/evaluate-metric/bertscore), [BLEURT](https://huggingface.co/spaces/evaluate-metric/bleurt), etc., - Is the semantics of the output close to the semantics of the input?
+  -  using input data as references, potentially first transforming the input to text with simple templates
 
 
 #### Manual Evaluation
-We plan to perform a small-scale **in-house manual evaluation** near the end of the hackathon.
+Close the end of the hackathon, we plan to perform a small-scale **in-house manual evaluation** .
 
 The idea is to **let other hackathon participants evaluate the outputs** of your model. 
 
