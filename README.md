@@ -157,15 +157,42 @@ In case we find out that multiple teams arrived to meaningful findings, we may s
 
 
 ## LLM access
-TODO our API
+You can access LLMs running on our cluster through the API at `http://quest.ms.mff.cuni.cz/nlg/practicald2t-node{node_number}/generate` with the following parameters:
+
+- `prompt` - the input text
+- `max_length` - the maximum length of the generated output (default: 100)
+- `temperature` - the temperature of the sampling (default: 0.9)
+- `repetition_penalty` - the repetition penalty (default: 1.2)
+- `do_sample` - whether to sample or use greedy decoding (default: True)
+- `top_p` - the top-p sampling parameter (default: 0.95)
+- `top_k` - the top-k sampling parameter (default: 50)
+
+See the script `scripts/example.py` to get an idea of how to use the API.
+
+We have currently 8 NVIDIA RTX A4000 GPUs with 16GB of memory each, we can try to allocate more / larger GPUs if needed.
+
+Generally, we would like to have a single model per team to minimize the delay. Please, agree on the node number you will be using with the other teams.
+
+Currently running models:
+
+| Node number | GPU     | Model                                                                               | Status  |
+| ----------- | ------- | ----------------------------------------------------------------------------------- | ------- |
+| 1           | 1 x 16G | [`llama-2-7b-chat-hf`](https://huggingface.co/meta-llama/Llama-2-7b-chat-hf) (fp16) | running |
+| 2           | 1 x 16G | [`llama-2-7b-chat-hf`](https://huggingface.co/meta-llama/Llama-2-7b-chat-hf) (fp16) | running |
+| 3           | 1 x 16G | [`llama-2-7b-chat-hf`](https://huggingface.co/meta-llama/Llama-2-7b-chat-hf) (fp16) | running |
+| 4           | 1 x 16G | [`llama-2-7b-chat-hf`](https://huggingface.co/meta-llama/Llama-2-7b-chat-hf) (fp16) | running |
+| 5           | 4 x 16G | [`bloomz-7b1`](https://huggingface.co/bigscience/bloomz-7b1) (fp32)                 | running |
 
 
 ### Google Colab
-Alternatively, you can use Google Colab notebooks.
+Alternatively, you can use Google Colab notebooks. 
 
-**Advantages:** You do not need to rely on our infrastructure, you can re-use existing Jupyter notebooks and you can use the web-ui interface for rapid development.
+Here are some potentially useful links (untested):
+- https://github.com/camenduru/text-generation-webui-colab - colab notebooks for running [text-generation-webui](https://github.com/camenduru/text-generation-webui) with various LLMs
+- https://medium.com/@aitor.porcellaburu/run-open-source-llm-for-free-in-google-colab-kaggle-84dd64a0a23a - links to various LLM notebooks
+- https://towardsdatascience.com/fine-tune-your-own-llama-2-model-in-a-colab-notebook-df9823a04a32 - finetuning LLaMa 2
+
+**Advantages:** You do not need to rely on our infrastructure & you can re-use existing Jupyter notebooks and web UI for rapid development.
 
 **Disadvantages:** It may be harder to integrate the notebooks with your custom codebase. Also, the GPUs may not be available or sufficient for the models you want to run.
 
-**Useful links**:
-- https://github.com/camenduru/text-generation-webui-colab - colab notebooks for running [text-generation-webui](https://github.com/camenduru/text-generation-webui) with various LLMs
