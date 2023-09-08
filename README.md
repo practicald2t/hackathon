@@ -76,8 +76,7 @@ How many languages can your system handle?
 Here are various qualities you can should evaluate the output on:
 
 - **fluency** - Is the report without syntactical / grammatical errors and is it easily readable?
-- **semantic accuracy** - Is the report faithful to the input data?
-- **completeness** - Does the report contain all the features and data you wanted to include?
+- **semantic accuracy** - Is the report faithful to the input data, and does it contain all the attributes you wanted to include?
 - **consistency** - Is the system able to produce outputs consistently across various inputs?
 
 Here are several options on how to perform the evaluation:
@@ -167,9 +166,11 @@ You can access LLMs running on our cluster through the API at `http://quest.ms.m
 - `top_p` - the top-p sampling parameter (default: 0.95)
 - `top_k` - the top-k sampling parameter (default: 50)
 
-See the script `scripts/example.py` to get an idea of how to use the API.
+See `scripts/generation/example.py` to get an idea of how to use the API.
 
-We have currently 8 NVIDIA RTX A4000 GPUs with 16GB of memory each, we can try to allocate more / larger GPUs if needed.
+We have currently 8 NVIDIA RTX A4000 GPUs with 16GB of memory each, we can try to allocate more / larger GPUs if needed. 
+
+We can also swap the models for the ones you are interested in (in case we can fit them on our GPUs).
 
 Generally, we would like to have a single model per team to minimize the delay. Please, agree on the node number you will be using with the other teams.
 
