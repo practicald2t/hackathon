@@ -19,7 +19,7 @@ def get_coordinates(location):
     return lat, lon
 
 
-def get_weather_from_api(location, api):
+def get_weather_from_api(location, api, save_to_file=True):
     # OpenWeather API URL
     base_url = f"https://api.openweathermap.org/data/2.5/{api}"
     api_key = os.environ.get("OPENWEATHER_API_KEY")
@@ -41,12 +41,13 @@ def get_weather_from_api(location, api):
     if response.status_code == 200:
         j = response.json()
 
-        # Save the response as JSON
-        os.makedirs(f"data/fetched/{api}", exist_ok=True)
-        current_time = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+        if save_to_file:
+            # Save the response as JSON
+            os.makedirs(f"data/fetched/{api}", exist_ok=True)
+            current_time = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
 
-        with open(f"data/fetched/{api}/{current_time}_{lat:.2f},{lon:.2f}.json", "w") as f:
-            json.dump(j, f, indent=4)
+            with open(f"data/fetched/{api}/{current_time}_{lat:.2f},{lon:.2f}.json", "w") as f:
+                json.dump(j, f, indent=4)
 
         return j
     else:

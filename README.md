@@ -166,7 +166,7 @@ You can access LLMs running on our cluster through the API at `http://quest.ms.m
 - `top_p` - the top-p sampling parameter (default: 0.95)
 - `top_k` - the top-k sampling parameter (default: 50)
 
-See `scripts/generation/example.py` to get an idea of how to use the API.
+See [scripts/generation/example.py](scripts/generation/example.py) to get an idea of how to use the API.
 
 We have currently 8 NVIDIA RTX A4000 GPUs with 16GB of memory each, we can try to allocate more / larger GPUs if needed. 
 
