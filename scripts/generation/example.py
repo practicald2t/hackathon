@@ -3,6 +3,7 @@
 import requests
 import sys
 import argparse
+import os
 
 sys.path.append("scripts/openweather/")
 
@@ -18,12 +19,14 @@ if __name__ == "__main__":
     # the node on the cluster to use
     NODE = args.node
     API_URL = f"http://quest.ms.mff.cuni.cz/nlg/practicald2t-node{NODE}/generate"
+    API_KEY = os.environ.get("UFAL_LLM_API_KEY")
 
     data = get_weather_from_json("data/2023-09-09/weather/Prague.json")
 
     prompt = f"Your task is to write a one-paragraph weather forecast for Prague as of today. The output should include all relevant information such as temperature, humidity, wind speed and direction, visibility, cloud cover, sunrise/sunset times, etc., in a clear and concise manner. Please use appropriate units throughout your response.\n{data}\n"
 
     args = {
+        "api_key": API_KEY,
         "prompt": prompt,
         "max_length": 512,
         "temperature": 0.9,
@@ -38,7 +41,10 @@ if __name__ == "__main__":
     )
     j = response.json()
 
-    print(j["out"]["choices"][0]["text"])
+    try:
+        print(j["out"]["choices"][0]["text"])
+    except KeyError:
+        print(j)
 
     """
     Example output from llama-2-7b-chat-hf (fp16):
