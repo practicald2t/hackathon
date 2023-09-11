@@ -107,7 +107,7 @@ Manual evaluation with human annotators can bring valuable insights and more pre
 
 Close the end of the hackathon, we plan to perform a small-scale in-house manual evaluation. The idea is to **let other hackathon participants evaluate the outputs** of your model. 
 
-For the evaluation process, you should prepare a randomly-selected subset of outputs of your system you want to evaluate.
+For the evaluation process, you should prepare outputs of your system on the test set(s).
 
 (We will specify the details during the day based on the progress and ambitions of individual teams.)
 
