@@ -21,7 +21,7 @@ if __name__ == "__main__":
     API_URL = f"http://quest.ms.mff.cuni.cz/nlg/practicald2t-node{NODE}/generate"
     API_KEY = os.environ.get("UFAL_LLM_API_KEY")
 
-    data = get_weather_from_json("data/2023-09-09/weather/Prague.json")
+    data = get_weather_from_json("data/2023-09-09/weather/dev/Prague.json")
 
     prompt = f"Your task is to write a one-paragraph weather forecast for Prague as of today. The output should include all relevant information such as temperature, humidity, wind speed and direction, visibility, cloud cover, sunrise/sunset times, etc., in a clear and concise manner. Please use appropriate units throughout your response.\n{data}\n"
 
