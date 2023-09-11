@@ -38,7 +38,9 @@ To get extra requests, you can create your own free account(s).
 
 
 #### Data files
-In the `data` folder, you can find pre-downloaded files for various locations. You can use these for development and testing. However, feel free to also download the data for the locations of your choice.
+In the `data` folder, you can find pre-downloaded files for various locations. You can use the data in the `dev` subfolders for development. Feel free to also download the data for the locations of your choice (up to the API limits).
+
+Please, do not optimize for the data in the `test` subfolders: we will use these for final evaluation of you system.
 
 ### ☀️ Subtask #1: Generate the current weather description
 The task is to generate a **description of the current weather** in the city(-ies) of your choice.
